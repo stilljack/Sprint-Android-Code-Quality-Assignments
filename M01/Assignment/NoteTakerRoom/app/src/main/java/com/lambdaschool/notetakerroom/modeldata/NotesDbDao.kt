@@ -17,7 +17,8 @@ object NotesDbDao {
         }
     }
 
-    fun readNote(id: String): Note? {
+
+/*    fun readNote(id: String): Note? {
         if (db != null) {
             val cursor = db!!.rawQuery(String.format("SELECT * FROM %s WHERE %s = '%s'",
                     NotesDbContract.NotesEntry.COLUMN_NAME_FB_ID,
@@ -34,8 +35,7 @@ object NotesDbDao {
         } else {
             return null
         }
-    }
-
+    }*/
     private fun getNoteFromCursor(cursor: Cursor): Note {
         var index: Int
         val note: Note
@@ -55,6 +55,10 @@ object NotesDbDao {
         return note
     }
 
+/*
+this is getNotes
+
+
     fun readAllNotes(): ArrayList<Note> {
         if (db != null) {
             val cursor = db!!.rawQuery(String.format("SELECT * FROM %s;",
@@ -71,6 +75,7 @@ object NotesDbDao {
             return ArrayList()
         }
     }
+*/
 
     fun createNote(note: Note) {
         if (db != null) {
@@ -120,6 +125,7 @@ object NotesDbDao {
             }
         }
     }
+/*
 
     fun deleteNote(note: Note) {
         if (db != null) {
@@ -130,6 +136,7 @@ object NotesDbDao {
             val affectedRows = db!!.delete(NotesDbContract.NotesEntry.TABLE_NAME, whereClause, null)
         }
     }
+*/
 
 
     fun updateCache(fbNotes: ArrayList<Note>): ArrayList<Note> {
