@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             }
             adapter.notifyDataSetChanged()
         }
-        makeArandomPokedex(10)
+        makeArandomPokedex(70)
         btn_submit.setOnClickListener {
             pokedexRetrofit.getPokemonForm(et_pokeentry.text.toString()).enqueue(object : Callback<PokeForms> {
                 override fun onFailure(call: Call<PokeForms>, t: Throwable) {
