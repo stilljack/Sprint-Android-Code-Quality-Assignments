@@ -13,12 +13,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.lambdaschool.notetaker.NoteListAdapter
-import com.lambdaschool.notetaker.NoteViewModel
-import com.lambdaschool.notetaker.SettingsActivity
+
 import com.lambdaschool.notetaker.ThemeUtils
 import com.lambdaschool.notetakerroom.R
 import com.lambdaschool.notetakerroom.modeldata.Note
+import com.lambdaschool.notetakerroom.viewmodel.NoteListAdapter
+import com.lambdaschool.notetakerroom.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 import java.util.ArrayList

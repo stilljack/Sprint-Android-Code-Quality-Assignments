@@ -3,7 +3,7 @@ package com.lambdaschool.notetakerroom.modeldata
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
-import com.lambdaschool.notetakerroom.NotesRoomDB
+
 import java.util.*
 
 class NoteRepository(context: Context) {
