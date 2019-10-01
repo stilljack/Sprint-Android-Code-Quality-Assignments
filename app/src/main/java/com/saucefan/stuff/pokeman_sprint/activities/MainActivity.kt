@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.saucefan.stuff.pokeman_sprint.R
 import com.saucefan.stuff.pokeman_sprint.model.PokeForms
 import com.saucefan.stuff.pokeman_sprint.model.Pokedex
@@ -24,6 +25,7 @@ import kotlinx.android.synthetic.main.list_layout.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.RuntimeException
 import kotlin.random.Random
 
 
@@ -124,6 +126,10 @@ class MainActivity : AppCompatActivity() {
         }
         makeArandomPokedex(70)
         btn_submit.setOnClickListener {
+            for (i in 0 until 40) {
+                val Gson= Gson()
+                val RetrofitActivity = ApiInterface.Factory
+            }
             pokedexRetrofit.getPokemonForm(et_pokeentry.text.toString()).enqueue(object : Callback<PokeForms> {
                 override fun onFailure(call: Call<PokeForms>, t: Throwable) {
                     t.printStackTrace()
