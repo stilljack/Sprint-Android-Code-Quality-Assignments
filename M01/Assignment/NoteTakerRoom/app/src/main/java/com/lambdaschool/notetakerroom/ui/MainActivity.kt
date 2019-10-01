@@ -6,11 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
+
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -21,6 +18,7 @@ import com.lambdaschool.notetaker.NoteViewModel
 import com.lambdaschool.notetaker.SettingsActivity
 import com.lambdaschool.notetaker.ThemeUtils
 import com.lambdaschool.notetakerroom.R
+import com.lambdaschool.notetakerroom.modeldata.Note
 import kotlinx.android.synthetic.main.activity_main.*
 
 import java.util.ArrayList
@@ -33,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var currentTheme: Int = 0
 
     private var layoutManager: StaggeredGridLayoutManager? = null
-    var listView: RecyclerView =note_recycler_view
+    var listView =note_recycler_view
     private var listAdapter: NoteListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

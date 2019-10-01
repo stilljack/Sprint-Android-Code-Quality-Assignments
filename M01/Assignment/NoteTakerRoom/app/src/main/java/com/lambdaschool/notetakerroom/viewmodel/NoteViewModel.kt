@@ -1,4 +1,4 @@
-package com.lambdaschool.notetaker
+package com.lambdaschool.notetakerroom.viewmodel
 
 import android.app.Application
 import android.content.Context
@@ -6,6 +6,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.lambdaschool.notetakerroom.modeldata.Note
+import com.lambdaschool.notetakerroom.modeldata.NoteRepository
 
 import java.util.ArrayList
 

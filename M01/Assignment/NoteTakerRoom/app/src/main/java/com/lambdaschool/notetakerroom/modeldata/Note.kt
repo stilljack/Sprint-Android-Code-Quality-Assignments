@@ -1,4 +1,4 @@
-package com.lambdaschool.notetaker
+package com.lambdaschool.notetakerroom.modeldata
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

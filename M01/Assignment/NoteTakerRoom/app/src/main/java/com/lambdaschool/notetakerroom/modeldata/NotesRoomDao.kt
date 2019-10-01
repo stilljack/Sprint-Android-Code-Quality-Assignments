@@ -1,7 +1,7 @@
-package com.lambdaschool.notetakerroom
+package com.lambdaschool.notetakerroom.modeldata
 
 import androidx.room.*
-import com.lambdaschool.notetaker.Note
+
 
 @Dao
 interface NotesRoomDao {

@@ -1,10 +1,13 @@
-package com.lambdaschool.notetaker
+package com.lambdaschool.notetakerroom.ui
+
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.lambdaschool.notetaker.ThemeUtils
 import com.lambdaschool.notetakerroom.R
+import com.lambdaschool.notetakerroom.modeldata.Note
 import kotlinx.android.synthetic.main.activity_edit.*
 
 
