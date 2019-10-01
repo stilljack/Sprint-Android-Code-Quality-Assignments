@@ -17,27 +17,27 @@ class NoteViewModel(application:Application) : AndroidViewModel(application) {
     private val noteList: LiveData<ArrayList<Note>> by lazy {
         getNotesList()
     }
-    private var repo: NoteRepository? = null
+    private var repo: NoteRepository = NoteRepository(context)
 
     //signatures wrong
     fun getNotesList(): LiveData<ArrayList<Note>> {
 
         loadList()
 
-        return noteList
+        return repo.getNotes(context)
     }
 
     private fun loadList() {
         repo = NoteRepository(context)
-        noteList = repo!!.getNotes(context)
+        repo!!.getNotes(context)
     }
 
     fun addNote(note: Note) {
         //so add notes shouldn't need to mess with note list as we are using live data
         //I think -- for now we
         if (noteList != null) {
-            repo!!.addNote(note)
-            noteList = repo.getNotes(context);
+            repo.addNote(note)
+
         }
     }
 }

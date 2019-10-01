@@ -1,4 +1,5 @@
-package com.lambdaschool.notetaker
+package com.lambdaschool.notetakerroom.ui
+
 
 import android.app.Activity
 import android.content.Context
@@ -15,7 +16,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.lambdaschool.notetaker.NoteListAdapter
+import com.lambdaschool.notetaker.NoteViewModel
+import com.lambdaschool.notetaker.SettingsActivity
+import com.lambdaschool.notetaker.ThemeUtils
 import com.lambdaschool.notetakerroom.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 import java.util.ArrayList
 
@@ -27,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     private var currentTheme: Int = 0
 
     private var layoutManager: StaggeredGridLayoutManager? = null
-    private var listView: RecyclerView? = null
+    var listView: RecyclerView =note_recycler_view
     private var listAdapter: NoteListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         listView = findViewById(R.id.note_recycler_view)
 
         layoutManager = StaggeredGridLayoutManager(LAYOUT_SPAN_COUNT, StaggeredGridLayoutManager.VERTICAL)
-        listView!!.layoutManager = layoutManager
+        listView.layoutManager = layoutManager
 
         viewModel = ViewModelProviders.of(this).get(NoteViewModel::class.java)
         val observer = Observer<ArrayList<Note>> { notes ->
@@ -63,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        viewModel!!.getNotesList(this)?.observe(this, observer)
+    //    viewModel!!.getNotesList(this)?.observe(this, observer)
 
         findViewById<View>(R.id.add_button).setOnClickListener {
             val intent = Intent(context, EditActivity::class.java)
@@ -107,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         notes.add(Note(Note.NO_ID, "Euclid", "Euclid Sea of Tranquility tendrils of gossamer clouds gathered by gravity extraplanetary circumnavigated. Globular star cluster star stuff harvesting star light at the edge of forever vastness is bearable only through love shores of the cosmic ocean made in the interiors of collapsing stars. From which we spring from which we spring emerged into consciousness from which we spring made in the interiors of collapsing stars the sky calls to us."))
         notes.add(Note(Note.NO_ID, "Decipherment", "Decipherment rich in mystery realm of the galaxies circumnavigated bits of moving fluff a still more glorious dawn awaits. Billions upon billions two ghostly white figures in coveralls and helmets are soflty dancing the carbon in our apple pies brain is the seed of intelligence Sea of Tranquility not a sunrise but a galaxyrise. Another world as a patch of light something incredible is waiting to be known not a sunrise but a galaxyrise hearts of the stars permanence of the stars and billions upon billions upon billions upon billions upon billions upon billions upon billions."))
         for (note in notes) {
-            viewModel!!.addNote(note, this)
+            viewModel!!.addNote(note)
         }
     }
 
@@ -118,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 if (data != null) {
                     val returnedNote = data.getSerializableExtra(EditActivity.EDIT_NOTE_KEY) as Note
 
-                    viewModel!!.addNote(returnedNote, this@MainActivity)
+                    viewModel!!.addNote(returnedNote)
                 }
             }
         }

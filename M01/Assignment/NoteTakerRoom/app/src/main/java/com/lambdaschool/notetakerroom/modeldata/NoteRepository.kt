@@ -8,18 +8,18 @@ import java.util.*
 
 class NoteRepository(context: Context) {
     //    private ArrayList<Note> notes;
+    private val database by lazy {
+        Room.databaseBuilder(
+                context.applicationContext,
+                NotesRoomDB::class.java, "notes_database"
+        ).fallbackToDestructiveMigration().build()
+    }
 
     lateinit var liveDataList: MutableLiveData<ArrayList<Note>>
 
-    private val notesFromCache: ArrayList<Note>
-        get() = NotesDbDao.readAllNotes()
+    private val notesFromCache: ArrayList<Note> =database.notesDao().getNotes()
+        //NotesDbDao.readAllNotes()
 
-    private val database by lazy {
-        Room.databaseBuilder(
-            context.applicationContext,
-            NotesRoomDB::class.java, "notes_database"
-        ).fallbackToDestructiveMigration().build()
-    }
 
     /*public NoteRepository() {
         this.notes = new ArrayList<>();
@@ -27,7 +27,7 @@ class NoteRepository(context: Context) {
 
     fun getNotes(context: Context): MutableLiveData<ArrayList<Note>> {
         liveDataList = MutableLiveData()
-        NotesDbDao.initializeInstance(context)
+     //   NotesDbDao.initializeInstance(context)
         // retrieve notes from cache
         val ldList = liveDataList
         ldList.value = notesFromCache
