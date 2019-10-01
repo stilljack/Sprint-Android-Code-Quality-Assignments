@@ -60,7 +60,7 @@ object SharedPrefsDao {
     }
 
     fun setNote(note: Note) {
-        if (note.getId() == Note.NO_ID) {
+        if (note.id == Note.NO_ID) {
             note.setId(nextId)
         }
         val ids = allIds

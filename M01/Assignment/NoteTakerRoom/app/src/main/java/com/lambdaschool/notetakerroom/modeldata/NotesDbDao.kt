@@ -1,5 +1,4 @@
-package com.lambdaschool.notetaker
-
+package com.lambdaschool.notetakerroom.modeldata
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -7,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 
 import java.util.ArrayList
 
+/*
 object NotesDbDao {
     private var db: SQLiteDatabase? = null
 
@@ -16,6 +16,7 @@ object NotesDbDao {
             db = helper.writableDatabase
         }
     }
+*/
 
 
 /*    fun readNote(id: String): Note? {
@@ -35,7 +36,10 @@ object NotesDbDao {
         } else {
             return null
         }
-    }*/
+    }
+
+
+ // this isn't actually called from anywhere so what off to the comment out graveyard TODO:
     private fun getNoteFromCursor(cursor: Cursor): Note {
         var index: Int
         val note: Note
@@ -166,4 +170,4 @@ this is getNotes
 
         return readAllNotes()
     }
-}
+}*/

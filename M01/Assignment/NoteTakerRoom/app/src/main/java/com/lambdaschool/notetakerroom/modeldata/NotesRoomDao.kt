@@ -1,9 +1,6 @@
 package com.lambdaschool.notetakerroom
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.lambdaschool.notetaker.Note
 
 @Dao
@@ -25,5 +22,6 @@ interface NotesRoomDao {
     fun readNoteByID(id:String)
     //should this be INT? String should be fine for now
 
-
+    @Update
+    fun updateNote(note: Note):Long
 }

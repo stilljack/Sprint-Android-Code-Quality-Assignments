@@ -8,6 +8,7 @@ import java.util.*
 
 class NoteRepository(context: Context) {
     //    private ArrayList<Note> notes;
+
     lateinit var liveDataList: MutableLiveData<ArrayList<Note>>
 
     private val notesFromCache: ArrayList<Note>
