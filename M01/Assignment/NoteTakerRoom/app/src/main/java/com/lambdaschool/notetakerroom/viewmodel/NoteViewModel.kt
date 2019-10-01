@@ -14,16 +14,16 @@ class NoteViewModel(application:Application) : AndroidViewModel(application) {
   val context:Context =application.applicationContext
     //changed to by lazt
 
-    private var noteList: MutableLiveData<ArrayList<Note>> by lazy {
+    private val noteList: LiveData<ArrayList<Note>> by lazy {
         getNotesList()
     }
     private var repo: NoteRepository? = null
 
     //signatures wrong
-    fun getNotesList(): MutableLiveData<ArrayList<Note>> {
-        if (noteList == null) {
-            loadList()
-        }
+    fun getNotesList(): LiveData<ArrayList<Note>> {
+
+        loadList()
+
         return noteList
     }
 
