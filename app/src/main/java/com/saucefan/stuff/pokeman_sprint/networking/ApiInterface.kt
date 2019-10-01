@@ -34,12 +34,11 @@ interface ApiInterface {
 
             fun create(): ApiInterface {
 
-                        // we don't need this at the moment
                 val logger = HttpLoggingInterceptor()
                 logger.level = HttpLoggingInterceptor.Level.BASIC
                 logger.level = HttpLoggingInterceptor.Level.BODY
                 val okHttpClient = OkHttpClient.Builder()
-                        .addInterceptor(StethoInterceptor())
+                        .addNetworkInterceptor(StethoInterceptor())
                     .addInterceptor(logger)
                     .retryOnConnectionFailure(false)
                     .readTimeout(10, TimeUnit.SECONDS)
