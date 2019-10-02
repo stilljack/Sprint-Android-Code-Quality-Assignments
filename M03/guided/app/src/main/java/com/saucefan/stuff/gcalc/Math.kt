@@ -3,13 +3,16 @@ package com.saucefan.stuff.gcalc
 class Math {
 
     fun addIntegers(a:Int,b:Int):Int {
-        //todo:Write Implementation
+
         return a+b
     }
 
-    fun multiplyIntegers(x:Int,y:Int):Int {
+    fun multiplyIntegers(x:Long,y:Long):Long {
         return x*y
 
     }
+
+
+
 
 }
