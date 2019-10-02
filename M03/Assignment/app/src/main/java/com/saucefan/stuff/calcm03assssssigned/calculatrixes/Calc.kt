@@ -1,19 +1,18 @@
 package com.saucefan.stuff.calcm03assssssigned.calculatrixes
 
-class Calc(val math:Math) {
+class Calc(private val maths:Maths) {
 
 
 
 fun getSquareSum(x:Int,y:Int):Int{
-    return math.getSquareSum(x,y)
+    return maths.getSquareSum(x,y)
 }
-
     fun factorial(x:Int):Int {
-        return math.factorial(x)
+        return maths.factorial(x)
     }
     fun difference (x:Int,y:Int):Int {
 
-        return math.diffAbsValue(x,y)
+        return maths.diffAbsValue(x,y)
 
     }
 }

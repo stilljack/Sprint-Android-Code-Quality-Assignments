@@ -2,7 +2,7 @@ package com.saucefan.stuff.calcm03assssssigned.calculatrixes
 
 import kotlin.math.absoluteValue
 
-class Math() {
+class Maths() {
 
 
     fun getSquareSum(x: Int, y: Int): Int {
