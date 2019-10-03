@@ -15,10 +15,10 @@ class Maths() {
     }
 
     fun factorial(x: Int): Int {
-        val sum = x
+        var sum = x
         if (x > 0) {
-            for (i in x..1) {
-                sum * x
+            for (i in x-1 downTo 1) {
+                sum *= i
 
             }
         }
