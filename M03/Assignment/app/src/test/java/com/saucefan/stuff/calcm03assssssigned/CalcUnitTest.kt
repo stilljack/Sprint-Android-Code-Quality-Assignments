@@ -128,6 +128,29 @@ class MathUnitTestParams : Spek({
     }
 })
 
+class MathAbsTestParams : Spek({
+    val ezMath = com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
+    val testCases = mapOf(
+        listOf<Int>(100,-100) to 0,
+        listOf<Int>(0,-100) to 100,
+        listOf<Int>(-100,100) to 0,
+        listOf<Int>(50,-75) to 25
+    )
+    test("this"){
+        assertEquals(120, ezMath.factorial(5))
+    }
+    describe("distance converter") {
+
+
+
+        testCases.forEach { value, expectedValue ->
+            it("${value[0]} +${value[1]}, $expectedValue") {
+                assertEquals(expectedValue, ezMath.diffAbsValue(value[0],value[1]))
+            }
+        }
+    }
+})
+
 
 /*
     @RunWith(Parameterized::class)
