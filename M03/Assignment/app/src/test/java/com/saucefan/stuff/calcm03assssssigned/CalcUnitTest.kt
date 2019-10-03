@@ -93,6 +93,7 @@ class MathUnitTest () {
     }
 
 
+
    /* val testCases = mapOf(
         61888.123 to ">50 km",
         38777.23 to "38.8 km",
@@ -100,32 +101,32 @@ class MathUnitTest () {
         987.98 to "988 m"
     )*/
 
-    class MathUnitTestParams : Spek({
-        val ezMath = com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
-        val testCases = mapOf(
-            5 to 120,
-            1 to 1,
-            3 to 6,
-            6 to 720
-        )
-        test("this"){
-            assertEquals(120, ezMath.factorial(5))
-        }
-        describe("distance converter") {
 
-
-
-           testCases.forEach { value, expectedValue ->
-               it("$value") {
-                   assertEquals(expectedValue, ezMath.factorial(value))
-               }
-            }
-        }
-    })
 }
 
 
+class MathUnitTestParams : Spek({
+    val ezMath = com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
+    val testCases = mapOf(
+        5 to 120,
+        1 to 1,
+        3 to 6,
+        6 to 720
+    )
+    test("this"){
+        assertEquals(120, ezMath.factorial(5))
+    }
+    describe("distance converter") {
 
+
+
+        testCases.forEach { value, expectedValue ->
+            it("$value") {
+                assertEquals(expectedValue, ezMath.factorial(value))
+            }
+        }
+    }
+})
 
 
 /*

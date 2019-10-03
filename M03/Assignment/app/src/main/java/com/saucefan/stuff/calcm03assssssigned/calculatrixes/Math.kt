@@ -18,7 +18,7 @@ class Maths() {
         val sum = x
         if (x > 0) {
             for (i in x..1) {
-                sum + x
+                sum * x
 
             }
         }
