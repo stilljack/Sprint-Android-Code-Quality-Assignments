@@ -136,10 +136,10 @@ class MathAbsTestParams : Spek({
         listOf<Int>(-100,100) to 0,
         listOf<Int>(50,-75) to 25
     )
-    test("this"){
+    test("single factorial test"){
         assertEquals(120, ezMath.factorial(5))
     }
-    describe("distance converter") {
+    describe("category for the test cases") {
 
 
 
