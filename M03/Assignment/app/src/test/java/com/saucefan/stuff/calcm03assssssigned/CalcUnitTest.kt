@@ -1,23 +1,20 @@
 package com.saucefan.stuff.calcm03assssssigned
 
 import com.saucefan.stuff.calcm03assssssigned.calculatrixes.Calc
-import org.junit.Test
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
+
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.runners.Parameterized
-import org.junit.runner.RunWith
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class CalcUnitTest {
     val ezMaths =com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
     val ezCalc = Calc(ezMaths)
 
-@Test
 fun factorialTest() {
     val num1 = 5
     val expected = 120
@@ -33,7 +30,7 @@ fun factorialTest() {
     //check
     assertEquals(expected, sum)
 }
-@Test
+
 fun differenceTest(){
     val num1 =20
     val num2 =10
@@ -52,7 +49,7 @@ fun differenceTest(){
 
 }
 
-    @Test
+
     fun getSquareSumTest() {
         val num1 =4
         val num2 =4
@@ -75,19 +72,19 @@ fun differenceTest(){
 }
 
 
-@RunWith(Parameterized::class)
-class MathUnitTest (private val fInput: Int, private val fExpected: Int) {
-    val ezMath =com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
+
+class MathUnitTest () {
+    val ezMath = com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
     val ezCalc = Calc(ezMath)
 
     //like ya had 20 bucks to pay the asian kid,
     //ezmath.
 
-    @Test
+
     fun palindromeTest() {
 
-        assertTrue {  ezMath.palidrome("bob")}
-        assertTrue {  ezMath.palidrome("racecar")}
+        assertTrue { ezMath.palidrome("bob") }
+        assertTrue { ezMath.palidrome("racecar") }
         assertFalse { ezMath.palidrome("sauce") }
 
 
@@ -96,36 +93,42 @@ class MathUnitTest (private val fInput: Int, private val fExpected: Int) {
     }
 
 
-    object Parameters {
-        @Parameterized.Parameters
-        fun parameters(): ArrayList<List<Int>> {
-            return arrayListOf<List<Int>>(
-                listOf<Int>(0, 0),
-                listOf<Int>(1, 1),
-                listOf<Int>(2, 2),
-                listOf<Int>(3, 6),
-                listOf<Int>(4, 24),
-                listOf<Int>(5, 120),
-                listOf<Int>(6, 720)
-            )
+   /* val testCases = mapOf(
+        61888.123 to ">50 km",
+        38777.23 to "38.8 km",
+        16984.44 to "17.0 km",
+        987.98 to "988 m"
+    )*/
+
+    class MathUnitTestParams : Spek({
+        val ezMath = com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
+        val testCases = mapOf(
+            5 to 120,
+            1 to 1,
+            3 to 6,
+            6 to 720
+        )
+        test("this"){
+            assertEquals(120, ezMath.factorial(5))
         }
-    }
-
-    @Test
-    fun sumsTest() {
-
-
-        assertEquals(fExpected, ezMath.factorial(fInput))
+        describe("distance converter") {
 
 
 
+           testCases.forEach { value, expectedValue ->
+               it("$value") {
+                   assertEquals(expectedValue, ezMath.factorial(value))
+               }
+            }
+        }
+    })
+}
 
 
 
 
 
-    }
-
+/*
     @RunWith(Parameterized::class)
     inner class FibonacciTest(private val fInput: Int, private val fExpected: Int) {
         @Test
@@ -154,4 +157,4 @@ object Fibonacci {
 }
 
 
-*/
+*/*/
