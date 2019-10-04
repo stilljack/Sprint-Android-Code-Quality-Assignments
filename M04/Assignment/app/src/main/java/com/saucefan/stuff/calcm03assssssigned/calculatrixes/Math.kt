@@ -16,7 +16,7 @@ class Maths() {
 
     fun divide (x:Long,y:Long):Long {
 
-        return x/y
+        return x.div(y)
     }
 
     fun multiply (x:Long,y:Long):Long {

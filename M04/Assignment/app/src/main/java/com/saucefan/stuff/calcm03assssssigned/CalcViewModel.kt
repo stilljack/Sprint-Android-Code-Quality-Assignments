@@ -46,7 +46,7 @@ class CalcViewModel : ViewModel() {
         }
 
 
-        var strSplit = strA.split(",").toTypedArray()
+        var strSplit = strA.split(",").toList()
         var operands = strB.toCharArray()
 
         //if you got at least two values to work on lets work on em
@@ -57,18 +57,20 @@ class CalcViewModel : ViewModel() {
                 //check if final is empty, if not run factorial on final
                 if (final != 0L) {
                     final = computeHelper("!", final)
+                    strSplit= strSplit.drop(1)
                 } else {
                     x = strSplit[0].toLong()
                     final = computeHelper("!", x)
-                    strSplit.drop(0)
+                   strSplit= strSplit.drop(1)
                 }
             }
                 //ok so not a factorial, is final empty?
                 if (final != 0L) {
                     //is strsplit empty so we can get a y variable?
-                    if (strSplit.isNotEmpty()) {
+                    if (strSplit.isNotEmpty() && strSplit[0]!="") {
                         y = strSplit[0].toLong()
                         final = computeHelper(operands[i].toString(), final, y)
+                        strSplit.drop(1)
                     }
                     //if we get here we are out of strsplits and final is calculated as best it can be,
                     //so we clean up
@@ -78,13 +80,12 @@ class CalcViewModel : ViewModel() {
                     }
                 }
                 //ok so final is empty, lets make sure we have at least two variables
-                if (strSplit.size > 1) {
+                if (strSplit.size > 1  && strSplit[0]!=""  && strSplit[1]!="") {
                     //cool, lets compute 'em
                     x = strSplit[0].toLong()
                     y = strSplit[1].toLong()
                     final = computeHelper(operands[i].toString(), x, y)
-                    strSplit.drop(0)
-                    strSplit.drop(0)
+                    strSplit= strSplit.drop(2)
                 }
 // we done here
                 else {
@@ -126,13 +127,15 @@ class CalcViewModel : ViewModel() {
                 final = maths.multiply(x, y)
             }
             "÷" -> {
-                if (x != 0L && y != 0L) {
-                    throw Exception("can't divide by zero!")
+          //      if (x != 0L && y != 0L) {
+             //       throw Exception("can't divide by zero!")
+        //       final=1
+        //        }
+            //    else {
+                    final = maths.divide(x, y)
                 }
-                final = maths.divide(x, y)
             }
 
-        }
             return final
     }
 
