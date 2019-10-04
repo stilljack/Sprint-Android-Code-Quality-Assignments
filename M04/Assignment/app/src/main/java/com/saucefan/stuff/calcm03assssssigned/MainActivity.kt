@@ -17,7 +17,7 @@ import kotlin.properties.ObservableProperty
 // lets actually make this, why not
 //this is a non trvial problem
 
-
+//this is a really boring problem tho
 
 class MainActivity : AppCompatActivity() {
 lateinit var viewModel: CalcViewModel
@@ -33,15 +33,35 @@ lateinit var viewModel: CalcViewModel
 
 
 
-        btn_add
-        btn_multiply
-        btn_factorial
-        btn_divide
 
+// so we're doing this kind of the easy way,
+        //why? because I'm not exactly invested in this app -- but that being said we can get to MVP
 
-        btn_submit.setOnClickListener {
-            //todo
+        btn_multiply.setOnClickListener {
+            viewModel.addToString("*")
         }
+
+
+        btn_factorial.setOnClickListener {
+            viewModel.addToString("!")
+        }
+
+
+        //this little guy is called an obelus
+        btn_divide.setOnClickListener {
+            viewModel.addToString("÷")
+        }
+
+
+        btn_add.setOnClickListener {
+            viewModel.addToString("+")
+        }
+
+btn_subtract.setOnClickListener {
+    viewModel.addToString("-")
+}
+
+
 
 
         //detete -- ie backspace, ie. delete last char
@@ -56,12 +76,19 @@ lateinit var viewModel: CalcViewModel
         }
 
 
-
+        btn_submit.setOnClickListener {
+            viewModel.compute()
+        }
 
 
 
 
         //eww numbers
+        btn_zero.setOnClickListener {
+            viewModel.addToString("0")
+        }
+
+
         btn_one.setOnClickListener {
             viewModel.addToString("1")
         }
