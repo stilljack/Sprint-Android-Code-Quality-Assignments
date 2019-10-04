@@ -33,10 +33,67 @@ lateinit var viewModel: CalcViewModel
 
 
 
-btn_nine.setOnClickListener {
-   viewModel.setDisplayString("9")
-}
+        btn_add
+        btn_multiply
+        btn_factorial
+        btn_divide
 
+
+        btn_submit.setOnClickListener {
+            //todo
+        }
+
+
+        //detete -- ie backspace, ie. delete last char
+        btn_delete.setOnClickListener {
+            viewModel.backspace()
+        }
+
+
+        //clear!
+        btn_clear.setOnClickListener {
+            viewModel.clear()
+        }
+
+
+
+
+
+
+
+        //eww numbers
+        btn_one.setOnClickListener {
+            viewModel.addToString("1")
+        }
+        btn_two.setOnClickListener {
+            viewModel.addToString("2")
+        }
+        btn_three.setOnClickListener {
+            viewModel.addToString("3")
+        }
+            btn_four.setOnClickListener {
+                viewModel.addToString("4")
+            }
+            btn_five.setOnClickListener {
+                viewModel.addToString("5")
+            }
+
+            btn_six.setOnClickListener {
+                viewModel.addToString("6")
+            }
+                btn_seven.setOnClickListener {
+                    viewModel.addToString("7")
+                }
+                btn_eight.setOnClickListener {
+                    viewModel.addToString("8")
+                }
+                btn_nine.setOnClickListener {
+                    viewModel.addToString("9")
+                }
+
+
+            }
+        }
 
        /* for (i in 0..200) {
             println("$i:  "+m.factorial(i))
@@ -46,5 +103,5 @@ btn_nine.setOnClickListener {
             val y = Random.nextInt()
             println("x=$x -- y=$y:  "+m.diffAbsValue(x,y))
         }*/
-    }
-}
+
+

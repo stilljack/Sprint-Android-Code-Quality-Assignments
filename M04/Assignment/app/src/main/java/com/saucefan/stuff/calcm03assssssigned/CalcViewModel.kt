@@ -16,6 +16,22 @@ class CalcViewModel : ViewModel() {
         }
     }
 
+
+// oh god i hate using !!
+    fun backspace() {
+        if (displayStringLive.value == "0") {
+            displayStringLive.value = "0"
+        } else if (displayStringLive.value!!.length > 1) {
+            displayStringLive.value= displayStringLive.value?.dropLast(1) ?: "0"
+        } else {
+            displayStringLive.value = "0"
+        }
+    }
+
+    fun clear() {
+        displayStringLive.value="0"
+    }
+
 fun setDisplayString(string:String) {
     displayStringLive.value=string
 }
@@ -27,9 +43,15 @@ fun setDisplayString(string:String) {
     }
 
 
-    fun addToString() {
-
-    }
+    fun addToString(string: String) {
+        //if this number is 0, replace
+        if (displayStringLive.value=="0"){
+            displayStringLive.value=string
+            //else add it to the end of the string
+        }else {
+            displayStringLive.value = displayStringLive.value + string
+        }
+        }
 
 
 
