@@ -72,11 +72,11 @@
                     android:text="*" />
 
                 <Button
-                    android:id="@+id/btn_factorial"
+                    android:id="@+id/btn_delete"
                     style="@style/calcButtonBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="!" />
+                    android:text="<-" />
             </TableRow>
 
             <TableRow>
@@ -166,12 +166,12 @@
                     android:text="9" />
 
                 <Button
-                    android:id="@+id/btn_whatever"
+                    android:id="@+id/btn_factorial"
                     style="@style/calcButtonBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:text="|-|" />
+                    android:text="!" />
             </TableRow>
 
             <TableRow style="@style/calcButtonBar">

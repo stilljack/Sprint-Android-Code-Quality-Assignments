@@ -8,12 +8,15 @@ import com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths
 import kotlin.random.Random
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
-
+import kotlin.properties.ObservableProperty
 
 
 // lets actually make this, why not
+//this is a non trvial problem
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,11 +27,14 @@ lateinit var viewModel: CalcViewModel
 
         viewModel= ViewModelProviders.of(this)[CalcViewModel::class.java]
 
+            viewModel.getDisplayString().observe(this, Observer {
+                tv_display.text=it
+            })
 
 
 
 btn_nine.setOnClickListener {
-    tv_display.text="9"
+   viewModel.setDisplayString("9")
 }
 
 
