@@ -8,6 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+
 import org.junit.FixMethodOrder
 import org.junit.Ignore
 import org.junit.Rule
@@ -27,13 +28,12 @@ class NumPadTests {
 
     @Rule
     @JvmField
-    var activityScenarioRule =ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
 
     @Test
     fun number9Test() {
         val correctDisplay ="9"
-
 
         onView(withId(R.id.btn_nine))
             .perform(click())

@@ -5,7 +5,26 @@ import kotlin.math.absoluteValue
 class Maths() {
 
 
-    fun getSquareSum(x: Int, y: Int): Int {
+    fun add(x:Long,y:Long): Long {
+
+        return x+y
+    }
+
+    fun subtract (x:Long,y:Long):Long {
+        return x-y
+    }
+
+    fun divide (x:Long,y:Long):Long {
+
+        return x/y
+    }
+
+    fun multiply (x:Long,y:Long):Long {
+        return x*y
+
+    }
+
+    fun getSquareSum(x: Long, y: Long): Long {
 
         //the sum of two numbers squared
         //or
@@ -14,18 +33,17 @@ class Maths() {
 
     }
 
-    fun factorial(x: Int): Int {
+    fun factorial(x: Long): Long {
         var sum = x
         if (x > 0) {
             for (i in x-1 downTo 1) {
                 sum *= i
-
             }
         }
         return sum
     }
 
-    fun diffAbsValue(x: Int, y: Int): Int {
+    fun diffAbsValue(x: Long, y: Long): Long {
         val absX = x.absoluteValue
         val absY = y.absoluteValue
         if (absX >= absY) {

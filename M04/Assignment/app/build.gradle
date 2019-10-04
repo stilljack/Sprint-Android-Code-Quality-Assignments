@@ -18,7 +18,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArgument "runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder"
     }
     buildTypes {
@@ -74,9 +74,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestRuntimeOnly "de.mannodermaus.junit5:android-instrumentation-test-runner:$junit5_runner"
 
-
     // add for espresso S08M4-1
-    testImplementation "androidx.test.ext:junit:1.1.1"
     testImplementation "androidx.test.ext:truth:1.2.0"
     testImplementation "org.robolectric:robolectric:4.3"
     testImplementation "androidx.test.espresso:espresso-intents:3.2.0"
