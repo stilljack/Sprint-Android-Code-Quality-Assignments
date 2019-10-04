@@ -111,7 +111,8 @@ class MathUnitTestParams : Spek({
         5L to 120L,
         1L to 1L,
         3L to 6L,
-        6L to 720L
+        6L to 720L,
+        14L to 87178291200
     )
     test("this"){
         assertEquals(120L, ezMath.factorial(5L))
