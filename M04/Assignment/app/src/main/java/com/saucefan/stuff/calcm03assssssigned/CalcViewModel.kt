@@ -36,12 +36,12 @@ class CalcViewModel : ViewModel() {
 
         for (i in extracted.indices) {
             if (extracted[i].isLetterOrDigit()) {
-                strA + extracted[i]
-                extracted.drop(i)
+                strA += extracted[i]
+             //   extracted.drop(i)
             } else {
-                strA + ","
-                strB + extracted[i]
-                extracted.drop(i)
+                strA += ","
+                strB += extracted[i]
+             //   extracted.drop(i)
             }
         }
 
@@ -63,35 +63,37 @@ class CalcViewModel : ViewModel() {
                     strSplit.drop(0)
                 }
             }
-            //ok so not a factorial, is final empty?
-            if (final != 0L) {
-                //is strsplit empty so we can get a y variable?
-                if (strSplit.isNotEmpty()) {
-                    y = strSplit[0].toLong()
-                    final = computeHelper(operands[i].toString(), final, y)
+                //ok so not a factorial, is final empty?
+                if (final != 0L) {
+                    //is strsplit empty so we can get a y variable?
+                    if (strSplit.isNotEmpty()) {
+                        y = strSplit[0].toLong()
+                        final = computeHelper(operands[i].toString(), final, y)
+                    }
+                    //if we get here we are out of strsplits and final is calculated as best it can be,
+                    //so we clean up
+                    else {
+                        endComputer(final)
+                        return true
+                    }
                 }
-                //if we get here we are out of strsplits and final is calculated as best it can be,
-                //so we clean up
+                //ok so final is empty, lets make sure we have at least two variables
+                if (strSplit.size > 1) {
+                    //cool, lets compute 'em
+                    x = strSplit[0].toLong()
+                    y = strSplit[1].toLong()
+                    final = computeHelper(operands[i].toString(), x, y)
+                    strSplit.drop(0)
+                    strSplit.drop(0)
+                }
+// we done here
                 else {
                     endComputer(final)
                     return true
                 }
             }
-            //ok so final is empty, lets make sure we have at least two variables
-            if (strSplit.size > 1) {
-                //cool, lets compute 'em
-                x = strSplit[0].toLong()
-                y = strSplit[1].toLong()
-                final = computeHelper(operands[i].toString(), x, y)
-                strSplit.drop(0)
-                strSplit.drop(0)
-            }
-// we done here
-            else {
-                endComputer(final)
-                return true
-            }
-        }
+
+        endComputer(final)
         return false
     }
 
