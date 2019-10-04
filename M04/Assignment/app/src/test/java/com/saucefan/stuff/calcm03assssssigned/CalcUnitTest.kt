@@ -16,8 +16,8 @@ class CalcUnitTest {
     val ezCalc = Calc(ezMaths)
 
 fun factorialTest() {
-    val num1 = 5
-    val expected = 120
+    val num1 = 5L
+    val expected = 120L
 
 
     val math = mock(com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths::class.java)
@@ -32,9 +32,9 @@ fun factorialTest() {
 }
 
 fun differenceTest(){
-    val num1 =20
-    val num2 =10
-    val expected =10
+    val num1 =20L
+    val num2 =10L
+    val expected =10L
 
 
     val math = mock(com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths::class.java)
@@ -51,9 +51,9 @@ fun differenceTest(){
 
 
     fun getSquareSumTest() {
-        val num1 =4
-        val num2 =4
-        val expected =32
+        val num1 =4L
+        val num2 =4L
+        val expected =32L
 
         val math = mock(com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths::class.java)
         `when`(math.getSquareSum(num1,num2)).thenReturn(expected)
@@ -108,13 +108,13 @@ class MathUnitTest () {
 class MathUnitTestParams : Spek({
     val ezMath = com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
     val testCases = mapOf(
-        5 to 120,
-        1 to 1,
-        3 to 6,
-        6 to 720
+        5L to 120L,
+        1L to 1L,
+        3L to 6L,
+        6L to 720L
     )
     test("this"){
-        assertEquals(120, ezMath.factorial(5))
+        assertEquals(120L, ezMath.factorial(5L))
     }
     describe("distance converter") {
 
@@ -131,10 +131,10 @@ class MathUnitTestParams : Spek({
 class MathAbsTestParams : Spek({
     val ezMath = com.saucefan.stuff.calcm03assssssigned.calculatrixes.Maths()
     val testCases = mapOf(
-        listOf<Int>(100,-100) to 0,
-        listOf<Int>(0,-100) to 100,
-        listOf<Int>(-100,100) to 0,
-        listOf<Int>(50,-75) to 25
+        listOf<Long>(100,-100) to 0L,
+        listOf<Long>(0,-100) to 100L,
+        listOf<Long>(-100,100) to 0L,
+        listOf<Long>(50,-75) to 25L
     )
     test("single factorial test"){
         assertEquals(120, ezMath.factorial(5))

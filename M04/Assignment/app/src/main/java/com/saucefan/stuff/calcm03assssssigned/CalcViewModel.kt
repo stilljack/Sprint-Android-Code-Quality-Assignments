@@ -48,7 +48,10 @@ class CalcViewModel : ViewModel() {
 
         var strSplit = strA.split(",").toList()
         var operands = strB.toCharArray()
-
+        //if trailing empty, drop it
+        if (strSplit.last()=="") {
+            strSplit=strSplit.dropLast(1)
+        }
         //if you got at least two values to work on lets work on em
         for (i in operands.indices) {
 
@@ -114,17 +117,19 @@ class CalcViewModel : ViewModel() {
         when (operand) {
             "+" -> {
                 final = maths.add(x, y)
-
+                return final
             }
             "-" -> {
                 final = maths.subtract(x, y)
+                return final
             }
             "!" -> {
                 final = maths.factorial(x)
-
+                return final
             }
             "*" -> {
                 final = maths.multiply(x, y)
+                return final
             }
             "÷" -> {
           //      if (x != 0L && y != 0L) {
@@ -133,10 +138,11 @@ class CalcViewModel : ViewModel() {
         //        }
             //    else {
                     final = maths.divide(x, y)
+                return final
                 }
             }
 
-            return final
+        return final
     }
 
 
